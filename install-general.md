@@ -153,7 +153,7 @@ The following prerequisites are required to install Tanzu Application Platform:
 
 
 
-* **FluxCD source-controller v0.15.4**:
+* **Flux-SourceController**:
 
      * Create namespace `flux-system`
         
@@ -168,7 +168,7 @@ The following prerequisites are required to install Tanzu Application Platform:
         --clusterrole=cluster-admin \
         --serviceaccount=flux-system:default
         ```
-     * Install FluxCD Source Controller by running:
+     * Install Flux-SourceController by running:
         ```
         kapp deploy -a flux-source-controller -n flux-system \
         -f https://github.com/fluxcd/source-controller/releases/download/v0.15.4/source-controller.crds.yaml \
@@ -452,5 +452,6 @@ After you have installed the tanzu core executable, you must install package, im
   
 **A note regarding the installed plugins:**
 The `package`, `imgpullsecret`, `accelerator`, and `apps` plugins will be used to install and/or interact with the Tanzu Application Platform.
-Should you choose to use any of the other plugin commands (for example, a `cluster` plugin command) there could be unintended effects and it is not recommended.
+   
+The installation of this beta product requires cluster-admin privileges. There are additional plugin/commands included with the Tanzu CLI which could have unintended side-effects. For the purposes of installing this beta, VMware recommends against running commands for the following CLI plugins: `cluster`, `kubernetes-release`, `login`, `management-cluster`, and `pinniped-auth`.
     
